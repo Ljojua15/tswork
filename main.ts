@@ -47,4 +47,32 @@ console.log(calcPer(2, 5));
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//4.
+//4. შექმენით Person კლასი, რომელსაც ექნება სახელი, გვარი, ასაკი, სასწავლებელი. კონსტრუქტორში გადაეცით 4ივე მონაცემი, თუმცა, თუ სასწავლებელს
+// არ მიუთითებთ თავისით „AlgoUni“ მიანიჭოს. ამის მერე კლასში შექმენით Person კლასის ინსტანსი, და კონსოლში გამოიტანეთ ყველა მონაცემი.
+
+class Person {
+  name: string;
+  surName: string;
+  age: number;
+  uni?: string;
+
+  constructor(name: string, surName: string, age: number, uni?: string) {
+    this.name = name;
+    this.surName = surName;
+    this.age = age;
+    this.uni = uni;
+  }
+  showInfo(): void {
+    console.log(
+      `სახელი: ${this.name}, გვარი: ${this.surName} ასაკი: ${
+        this.age
+      } სასწავლებელი: ${this.uni ? this.uni : "ალგო-უნი"}`
+    );
+  }
+}
+
+const person1 = new Person("lasha", "jojua", 2);
+
+person1.showInfo();
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
