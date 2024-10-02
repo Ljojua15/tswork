@@ -110,7 +110,6 @@ function logPerson(user: User): void {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //6.კვლავ გვაქვს მომხმარებლების სია, მაგრამ ახლა გვემატება ადმინიც. შექმენით ისეთი ტიპი, რომელიც მომხმარებელსაც და ადმინსაც შეინახავს.
-
 interface User {
   name: string;
   age: number;
@@ -122,3 +121,36 @@ interface Admin {
   age: number;
   role: string;
 }
+
+const persons: (User | Admin)[] = [
+  {
+    name: "Max Mustermann",
+    age: 25,
+    occupation: "Chimney sweep",
+  },
+  {
+    name: "Kate Müller",
+    age: 23,
+    occupation: "Astronaut",
+  },
+  {
+    name: "Bruce Willis",
+    age: 64,
+    role: "World saver",
+  },
+  {
+    name: "Bruce Willis",
+    age: 64,
+    role: "World saver",
+  },
+];
+
+function logPerson2(user: User | Admin): void {
+  console.log(typeof user);
+  if ("role" in user) {
+    console.log(`სახელი: ${user.name}, ასაკი: ${user.age}, ${user.role}`);
+  } else {
+    console.log(`სახელი: ${user.name}, ასაკი: ${user.age}, ${user.occupation}`);
+  }
+}
+persons.forEach(logPerson2);
