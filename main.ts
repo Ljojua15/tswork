@@ -76,3 +76,49 @@ const person1 = new Person("lasha", "jojua", 2);
 person1.showInfo();
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//5.გაქვთ მომხმარებლების სია, თითოეული შეიცავს ინფორმაციას პირის სახელის, ასაკისა და პროფესიის შესახებ. განსაზღვროთ მომხმარებლის ინტერფეისი,
+//რომლითაც შექმნით უზრუნველყოთ ტიპის უსაფრთხოებასა და დაცულ სტრუქტურას და შეძლებთ ამ მომხმარებლების ფუნქციაში გადაცემას.
+
+interface User {
+  name: string;
+  age: number;
+  occupation: string;
+}
+
+const users: User[] = [
+  {
+    name: "Max Mustermann",
+    age: 25,
+    occupation: "Chimney sweep",
+  },
+  {
+    name: "Kate Müller",
+    age: 23,
+    occupation: "Astronaut",
+  },
+];
+
+function logPerson(user: User): void {
+  console.log(
+    `სახელი:${user.name} ასაკი:${user.age} occupation:${user.occupation}`
+  );
+}
+
+//users.forEach(logPerson);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//6.კვლავ გვაქვს მომხმარებლების სია, მაგრამ ახლა გვემატება ადმინიც. შექმენით ისეთი ტიპი, რომელიც მომხმარებელსაც და ადმინსაც შეინახავს.
+
+interface User {
+  name: string;
+  age: number;
+  occupation: string;
+}
+
+interface Admin {
+  name: string;
+  age: number;
+  role: string;
+}
